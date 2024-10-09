@@ -86,9 +86,10 @@ const Page: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl font-bold text-purple-600 dark:text-purple-300 mb-4">About Me</h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-            Hey there! I'm Mahindra, a passionate Full Stack Developer with expertise in blockchain and frontend technologies.
-            I love turning ideas into reality through clean and efficient code.
-          </p>
+  Hey there! I&apos;m Mahindra, a passionate Full Stack Developer with expertise in blockchain and frontend technologies.
+  I love turning ideas into reality through clean and efficient code.
+</p>
+
         </div>
 
         {/* Skills Section */}
