@@ -24,8 +24,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <motion.div
       className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden"
-      whileHover={{ scale: 1.05 }} // Scale up on hover
-      transition={{ duration: 0.3 }} // Duration for the scale effect
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
     >
       <Image src={imageSrc} alt={title} width={400} height={250} className="w-full h-40 object-cover" />
       <div className="p-4">

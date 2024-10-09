@@ -1,4 +1,3 @@
-// pages/contact.tsx
 "use client";
 import React, { useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
@@ -37,17 +36,16 @@ const ContactPage: React.FC = () => {
         'QIL4BKC3AK9s_th3w'
       )
       .then(
-        (response) => {
+        () => { // Removed 'response' since it's unused
           setIsSubmitted(true);
           setFormData({ name: '', email: '', message: '' });
           setErrorMessage('');
         },
-        (err) => {
+        () => { // Removed 'err' since it's unused
           setErrorMessage('Something went wrong. Please try again.');
         }
       );
   };
-
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -83,7 +81,6 @@ const ContactPage: React.FC = () => {
           Contact Me
         </motion.h1>
 
-      
         <motion.div
           className="flex flex-col lg:flex-row justify-between items-center mb-10"
           initial="hidden"
@@ -112,7 +109,6 @@ const ContactPage: React.FC = () => {
           </motion.div>
         </motion.div>
 
-   
         <motion.form
           onSubmit={handleSubmit}
           className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg"

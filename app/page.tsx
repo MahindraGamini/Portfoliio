@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import im1 from '../public/utils/1.png';
 import { motion } from 'framer-motion';
@@ -7,14 +7,15 @@ import { useRouter } from 'next/navigation';
 
 const Page = () => {
   const route = useRouter();
-  const roles = [
+  
+  const roles = useMemo(() => [
     'Full Stack Developer',
     'Blockchain Developer',
     'Frontend Developer',
     'Backend Developer',
     'UI/UX Designer',
     'Competitive Programmer',
-  ];
+  ], []);
 
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
@@ -22,7 +23,8 @@ const Page = () => {
   const [charIndex, setCharIndex] = useState(0);
   
   useEffect(() => {
-    let typingSpeed = isDeleting ? 100 : 150;
+    
+    const typingSpeed = isDeleting ? 100 : 150;
 
     const handleTyping = () => {
       const fullText = roles[currentRoleIndex];
@@ -59,7 +61,7 @@ const Page = () => {
 
   return (
     <div className="flex flex-col-reverse lg:flex-row items-center justify-between px-6 lg:px-10 py-10 lg:py-20 bg-color dark:bg-gray-900 h-screen gap-6">
-      {/* Text Section */}
+    
       <motion.div
         className="max-w-4xl mb-8 lg:mb-0 text-center lg:text-left"
         initial="hidden"
@@ -92,7 +94,6 @@ const Page = () => {
         </button>
       </motion.div>
 
-      {/* Image Section */}
       <motion.div
         className="max-w-xs md:max-w-md mt-4" // Add margin-top here
         initial="hidden"

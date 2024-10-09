@@ -15,7 +15,7 @@ const NavBar: React.FC = () => {
   return (
     <div className="w-full bg-white dark:bg-gray-800 shadow-md transition-colors duration-300">
       <nav className="container mx-auto flex items-center justify-between py-4 px-6">
-        {/* Logo Section */}
+   
         <div className="text-2xl font-bold heading font-roboto text-primary dark:text-purple-300">
           <Link href={'/'}>Mahindra Gamini</Link>
         </div>
