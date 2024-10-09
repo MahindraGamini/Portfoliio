@@ -1,0 +1,30 @@
+/* styles/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles */
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+.heading {
+  @apply text-gray-800 dark:text-gray-200;
+  font-family: 'Roboto', sans-serif;
+}
+
+.dribble {
+  @apply text-pink-500 dark:text-pink-400;
+}
+
+.primary {
+  @apply text-primary dark:text-purple-300;
+}
+
+.btn-prim {
+  @apply border-primary dark:border-purple-300;
+}
+
