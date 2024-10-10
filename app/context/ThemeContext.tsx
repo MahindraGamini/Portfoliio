@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 
 interface ThemeContextProps {
@@ -7,7 +7,7 @@ interface ThemeContextProps {
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({
-  theme: 'dark',
+  theme: 'dark', 
   toggleTheme: () => {},
 });
 
@@ -16,14 +16,17 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<string>('dark');
+  const [theme, setTheme] = useState<string>('dark'); 
 
   useEffect(() => {
-
     const storedTheme = localStorage.getItem('theme');
+    
     if (storedTheme) {
       setTheme(storedTheme);
       document.documentElement.classList.toggle('light', storedTheme === 'light');
+      document.documentElement.classList.toggle('dark', storedTheme === 'dark');
+    } else {
+      document.documentElement.classList.add('dark'); 
     }
   }, []);
 
@@ -31,6 +34,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    document.documentElement.classList.toggle('light', newTheme === 'light');
     localStorage.setItem('theme', newTheme);
   };
 
