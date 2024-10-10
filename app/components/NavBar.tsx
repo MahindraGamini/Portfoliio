@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React, { useState, useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import { SunIcon, MoonIcon } from '@heroicons/react/solid';
+import Image from 'next/image';
+import Logo from '../../public/utils/logo.png'; // Correctly import your logo
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -16,47 +18,55 @@ const NavBar: React.FC = () => {
     <div className="w-full bg-white dark:bg-gray-800 shadow-md transition-colors duration-300">
       <nav className="container mx-auto flex items-center justify-between py-4 px-6">
    
-        <div className="text-2xl font-bold heading font-roboto text-primary dark:text-purple-300">
-          <Link href={'/'}>Mahindra Gamini</Link>
+        <div className="flex items-center space-x-2">
+          <Link href={'/'} className="text-2xl font-bold heading font-roboto text-primary dark:text-purple-300">
+            <div className="relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16"> {/* Responsive container */}
+              <Image 
+                src={Logo} 
+                alt="Logo" 
+                layout="fill" // This will make the image fill its container
+                objectFit="contain" // Ensure it fits within the container without distortion
+              />
+            </div>
+          </Link>
         </div>
 
         <div className="lg:hidden flex items-center space-x-4">
+          <button onClick={toggleTheme} className="focus:outline-none" aria-label="Toggle Theme">
+            {theme === 'light' ? (
+              <MoonIcon className="w-6 h-6 text-primary" />
+            ) : (
+              <SunIcon className="w-6 h-6 text-yellow-400" />
+            )}
+          </button>
 
-  <button onClick={toggleTheme} className="focus:outline-none" aria-label="Toggle Theme">
-    {theme === 'light' ? (
-      <MoonIcon className="w-6 h-6 text-primary" />
-    ) : (
-      <SunIcon className="w-6 h-6 text-yellow-400" />
-    )}
-  </button>
-
-  <button onClick={toggleMenu} className="focus:outline-none" aria-label="Toggle Menu">
-    <svg
-      className="w-6 h-6 text-primary dark:text-purple-300"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M4 6h16M4 12h16m-7 6h7"
-      />
-    </svg>
-  </button>
-</div>
+          <button onClick={toggleMenu} className="focus:outline-none" aria-label="Toggle Menu">
+            <svg
+              className="w-6 h-6 text-primary dark:text-purple-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </div>
 
         <div
-  className={`${
-    isOpen ? 'flex flex-col items-center space-y-4 py-4' : 'hidden'
-  } lg:flex lg:flex-row lg:items-center lg:space-x-6 flex-1 justify-center heading font-semibold text-lg`}
->
-  <Link href="/" className="hover:text-primary dark:hover:text-purple-300 py-2 lg:py-0 active:underline">Home</Link>
-  <Link href="/about" className="hover:text-primary dark:hover:text-purple-300 py-2 lg:py-0 active:underline">About</Link>
-  <Link href="/projects" className="hover:text-primary dark:hover:text-purple-300 py-2 lg:py-0 active:underline">Projects</Link>
-</div>
+          className={`${
+            isOpen ? 'flex flex-col items-center space-y-4 py-4' : 'hidden'
+          } lg:flex lg:flex-row lg:items-center lg:space-x-6 flex-1 justify-center heading font-semibold text-lg`}
+        >
+          <Link href="/" className="hover:text-primary dark:hover:text-purple-300 py-2 lg:py-0 active:underline">Home</Link>
+          <Link href="/about" className="hover:text-primary dark:hover:text-purple-300 py-2 lg:py-0 active:underline">About</Link>
+          <Link href="/projects" className="hover:text-primary dark:hover:text-purple-300 py-2 lg:py-0 active:underline">Projects</Link>
+        </div>
 
         <div className="ml-4 lg:ml-auto lg:w-fit heading flex items-center space-x-4">
           <button onClick={toggleTheme} className="hidden lg:block focus:outline-none" aria-label="Toggle Theme">
@@ -73,8 +83,6 @@ const NavBar: React.FC = () => {
           </Link>
         </div>
       </nav>
-
-    
     </div>
   );
 };
