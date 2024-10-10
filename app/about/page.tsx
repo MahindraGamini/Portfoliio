@@ -60,7 +60,7 @@ const Page: React.FC = () => {
       role:'Open Source Lead',
       company:'GDSC VITB',
       description:
-      'Open Sourcce Lead at GDSC club in VITB'
+      'Open Source Lead at GDSC club in VITB'
     }
   ];
 
