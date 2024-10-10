@@ -2,7 +2,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import r from '../../public/utils/react.png';
 import j from '../../public/utils/javascript.png';
@@ -16,11 +16,9 @@ import eth from '../../public/utils/Ethereum Blockchain.png';
 
 
 
-
-
 interface Skill {
   name: string;
-  img: string;
+  img: StaticImageData;
 }
 
 interface Internship {
