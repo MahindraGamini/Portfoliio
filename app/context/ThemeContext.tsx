@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 
 interface ThemeContextProps {
@@ -16,17 +16,14 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<string>('dark'); // Default theme is 'dark'
+  const [theme, setTheme] = useState<string>('dark');
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
 
+    const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
       setTheme(storedTheme);
       document.documentElement.classList.toggle('light', storedTheme === 'light');
-    } else {
-      setTheme('dark'); // Explicitly set default theme to dark
-      document.documentElement.classList.add('dark'); // Ensure dark theme is applied initially
     }
   }, []);
 
