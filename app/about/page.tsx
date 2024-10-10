@@ -13,12 +13,14 @@ import py from '../../public/utils/Python.png';
 import cp from '../../public/utils/C++.png';
 import sol from '../../public/utils/Christmas Ethereum Coin.png';
 import eth from '../../public/utils/Ethereum Blockchain.png';
-import { StaticImageData } from 'next/image';
+
+
+
 
 
 interface Skill {
   name: string;
-  img: StaticImageData;
+  img: string;
 }
 
 interface Internship {

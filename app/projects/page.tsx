@@ -1,7 +1,7 @@
 // pages/projects.tsx
 import React from 'react';
 import ProjectCard from '../components/ProjectCard';
-import im1 from '../../public/utils/im1.png'; // Replace with your actual image paths
+import im1 from '../../public/utils/im1.png'; 
 import im2 from '../../public/utils/im2.png';
 import im3 from '../../public/utils/im3.png';
 import im4 from '../../public/utils/im4.png'
